@@ -1,0 +1,30 @@
+<div class='gallery-title'>Загрузка файла</div>
+<!-- <input type="file" (change)="readUrl($event)"> -->
+<div class="file is-small">
+  <label class="file-label">
+    <input class="file-input" type="file" name="resume" (change)="readUrl($event)">
+    <span class="file-cta">
+      <span class="file-icon">
+        <i class="fas fa-upload"></i>
+      </span>
+      <span class="file-label">
+        Выберите файл
+      </span>
+    </span>
+  </label>
+</div>
+<!-- <figure class="image is-96x96" *ngIf="previewUrl"> -->
+  <img [src]="previewUrl" class="image  preview-image" *ngIf="previewUrl">
+<!-- </figure> -->
+<a class="button is-small is-outlined" (click)="upload()" *ngIf="previewUrl">
+    <span class="icon is-small">
+      <i class="fas fa-plus"></i>
+    </span>
+    <span>Добавить в галерею</span>
+</a>
+
+<div class="gallery-title">Галерея</div>
+<figure class="image has-text-centered" *ngFor="let picture of dish.pictures">
+  <img [src]="picture"  (click)="choosePicture(picture)" [ngClass]="{'chosen-picture': picture === chosenPicture, 'main-photo': picture === dish.mainPhotoUrl}">
+  <a (click)="makeMain(picture)" *ngIf="picture !== dish.mainPhotoUrl && picture === chosenPicture">Сделать основным</a>
+</figure>

@@ -1,0 +1,18 @@
+<div *ngIf="!categories">
+    Загрузка...
+</div>
+
+<div class="category-list">
+  <app-category-item *ngFor="let category of categories | async" (isChosen)="chooseCategory($event)" [category]="category"></app-category-item>
+  <button class="button is-rounded is-link new-category-button" (click)="showNewCategoryModal()">
+    <span class="icon">
+      <i class="fas fa-plus"></i>
+    </span>
+    <span>Новая категория</span>
+  </button>
+</div>
+
+<app-category-create 
+  [isModalActive]="isShownNewCategoryModal"
+  (isClosed)="closeModal()">
+</app-category-create>

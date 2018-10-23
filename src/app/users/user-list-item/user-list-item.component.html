@@ -1,0 +1,21 @@
+<div class="user-list-item">
+  <div class="user-list-item-title" (click)="collapse()">
+    {{ user.fullName }}
+    <div class="actions is-pulled-right">
+        <a (click)="showEditModal()">
+          <span class="icon is-small">
+            <i class="fas fa-edit"></i>
+          </span>
+        </a>
+        <a (click)="showDeleteModal()">
+          <span class="icon is-small">
+            <i class="fas fa-trash"></i>
+          </span>
+        </a>
+    </div>
+  </div>
+  <app-user-info [user]="user" *ngIf="isShownUserInfo"></app-user-info>
+</div>
+
+<app-user-edit [user]="user" [isModalActive]="isShownEditModal" (isClosed)="closeModal()"></app-user-edit>
+<app-user-delete [user]="user" [isModalActive]="isShownDeleteModal" (isClosed)="closeModal()"></app-user-delete>

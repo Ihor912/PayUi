@@ -1,0 +1,71 @@
+<section class="section column column is-10 is-offset-1">
+  <h1 class="title">Пользователи</h1>
+  <div class="tabs">
+    <ul>
+      <li [ngClass]="{'is-active': currentCategory === 'managers'}" (click)="changeCategory('managers')"><a>Менеджеры</a></li>
+      <li [ngClass]="{'is-active': currentCategory === 'forwarders'}" (click)="changeCategory('forwarders')"><a>Курьеры</a></li>
+      <li [ngClass]="{'is-active': currentCategory === 'clients'}" (click)="changeCategory('clients')"><a>Клиенты</a></li>
+      <li [ngClass]="{'is-active': currentCategory === 'companies'}" (click)="changeCategory('companies')"><a>Компании</a></li>
+    </ul>
+  </div>
+
+  <a (click)="showNewUserModal()" class="add-user-button" *ngIf="currentCategory === 'managers'">
+    <span class="icon">
+        <i class="fas fa-plus"></i>
+    </span>
+    <span>Создать нового менеджера</span>
+  </a> 
+  <app-user-create 
+    [isModalActive]="isShownNewUserModal"
+    (isClosed)="closeModal()">
+  </app-user-create>
+  <div *ngIf="currentCategory === 'managers'" class="user-list">
+    <app-user-list-item *ngFor="let user of managers | async" [user]="user"></app-user-list-item>
+  </div>
+  <div *ngIf="currentCategory === 'managers' && !managers">
+    Загрузка списка менеджеров...
+  </div>
+  <div *ngIf="currentCategory === 'managers' && !(managers | async)?.length">
+    Список менеджеров пуст
+  </div>
+
+  <div *ngIf="currentCategory === 'forwarders'" class="user-list">
+    <app-user-list-item *ngFor="let user of forwarders | async" [user]="user"></app-user-list-item>
+  </div>
+  <div *ngIf="currentCategory === 'forwarders' && !forwarders">
+    Загрузка списка курьеров...
+  </div>
+  <div *ngIf="currentCategory === 'forwarders' && !(forwarders | async)?.length">
+    Список курьеров пуст
+  </div>
+
+  <div *ngIf="currentCategory === 'clients'" class="user-list">
+    <app-user-list-item *ngFor="let user of clients | async" [user]="user"></app-user-list-item>
+  </div>
+  <div *ngIf="currentCategory === 'clients' && !clients">
+    Загрузка списка клиентов...
+  </div>
+  <div *ngIf="currentCategory === 'clients' && !(clients | async)?.length">
+    Список клиентов пуст
+  </div>
+
+  <a (click)="showNewCompanyModal()" class="add-user-button" *ngIf="currentCategory === 'companies'">
+    <span class="icon">
+        <i class="fas fa-plus"></i>
+    </span>
+    <span>Создать новую компанию</span>
+  </a> 
+  <app-company-create 
+    [isModalActive]="isShownNewCompanyModal"
+    (isClosed)="closeModal()">
+  </app-company-create>
+  <div *ngIf="currentCategory === 'companies'" class="user-list">
+    <app-company-list-item *ngFor="let company of companies | async" [company]="company"></app-company-list-item>
+  </div>
+  <div *ngIf="currentCategory === 'companies' && !companies">
+    Загрузка списка компаний...
+  </div>
+  <div *ngIf="currentCategory === 'companies' && !(companies | async)?.length">
+    Список компаний пуст
+  </div>
+</section>

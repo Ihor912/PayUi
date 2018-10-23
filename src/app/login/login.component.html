@@ -1,0 +1,32 @@
+<section class="section column is-one-third is-offset-one-third">
+  <h1 class="title">Войти</h1>
+  <form [formGroup]="loginForm" (ngSubmit)="submitForm()">
+    <div class="field">
+      <label class="label">Логин</label>
+      <div class="control has-icons-left has-icons-right">
+        <input class="input" placeholder="Логин" formControlName="username" type="text" required>
+        <span class="icon is-small is-left">
+          <i class="fas fa-user"></i>
+        </span>
+        <span class="icon is-small is-right" *ngIf="requiredUsernameError">
+          <i class="fas fa-exclamation-triangle"></i>
+        </span>
+        <p class="help is-danger" *ngIf="requiredUsernameError">Поле Логин не должно быть пустым</p>
+      </div>
+    </div>
+    <div class="field">
+      <label class="label">Пароль</label>
+      <div class="control has-icons-left has-icons-right">
+        <input class="input" placeholder="Пароль" formControlName="password" type="password">
+        <span class="icon is-small is-left">
+          <i class="fas fa-lock"></i>
+        </span>
+        <span class="icon is-small is-right" *ngIf="requiredPasswordError">
+          <i class="fas fa-exclamation-triangle"></i>
+        </span>
+      </div>
+      <p class="help is-danger" *ngIf="requiredPasswordError">Поле пароль не должно быть пустым</p>
+    </div>
+    <button class="button" type="submit">Войти</button>
+  </form>
+</section>

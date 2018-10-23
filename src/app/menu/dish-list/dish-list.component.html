@@ -1,0 +1,26 @@
+<div *ngIf="isCategoryChosen">
+  <div *ngIf="dishes">
+    <div *ngIf="!dishes">
+      Блюда категории &laquo;{{ category.title }}&raquo; не найдены
+    </div>
+    
+    <div *ngIf="dishes" class="dishes-list columns">
+      <app-dishes-item *ngFor="let dish of dishes | async" [dish]="dish" class="column is-3"></app-dishes-item>
+    </div>
+    <app-dish-create 
+      [isModalActive]="isShownNewDishModal"
+      [category]="category"
+      (isConfirmed)="closeModal()">
+    </app-dish-create>
+    <button mat-icon-button class="button-add"  (click)="showNewDishModal()">
+      <span class="icon">
+        <i class="fas fa-plus"></i>
+      </span>
+      <span>Добавить блюдо</span>
+    </button>
+  </div>
+  
+  <div *ngIf="!dishes">
+    Загрузка...
+  </div>
+</div>

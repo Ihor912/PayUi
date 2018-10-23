@@ -1,0 +1,11 @@
+.card-content .content {
+  font-size: 0.9rem;
+}
+
+.card-content {
+  padding: 1rem;
+}
+
+.card-content h4.title {
+  margin-bottom: 0.5rem;
+}

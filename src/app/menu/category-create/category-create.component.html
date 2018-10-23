@@ -1,0 +1,34 @@
+<div class="modal" [ngClass]="{ 'is-active' : isModalActive }">
+  <div class="modal-background" (click)="cancel()"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title">
+        Новая категория
+      </p>
+      <button class="delete" aria-label="close" (click)="cancel()"></button>
+    </header>
+    <section class="modal-card-body">
+      <form [formGroup]="createForm" (submit)="create()">
+        <div class="field">
+          <label class="label">Название</label>
+          <div class="control has-icons-right">
+            <input class="input is-small" type="text" formControlName="title">
+            <span class="icon is-small is-right" *ngIf="requiredTitleError">
+              <i class="fas fa-exclamation-triangle"></i>
+            </span>
+            <p class="help is-danger" *ngIf="requiredTitleError">Поле Название не должно быть пустым</p>
+          </div>
+        </div>
+      </form>
+    </section>
+    <footer class="modal-card-foot">
+      <button class="button is-success is-outlined" (click)="create()">
+        <span class="icon is-small">
+          <i class="fas fa-check"></i>
+        </span>
+        <span>Создать</span>
+      </button>
+      <button class="button is-outlined" (click)="cancel()">Отмена</button>
+    </footer>
+  </div>
+</div>

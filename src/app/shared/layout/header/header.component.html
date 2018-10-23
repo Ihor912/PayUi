@@ -1,0 +1,27 @@
+<nav class="navbar" role="navigation" aria-label="main navigation" *ngIf="(isAuthenticated | async)">
+  <!-- <div class="navbar-menu" *ngIf="!isAuthenticated">
+    <div class="navbar-end">
+      <a class="navbar-item" routerLink="/login">Войти</a>
+      <a class="navbar-item" routerLink="/register">Регистрация</a>
+    </div>
+  </div> -->
+
+  <div class="navbar-menu">
+    <div class="navbar-end">
+      <a class="navbar-item" routerLink="/">Главная</a>
+      <a class="navbar-item" routerLink="/menu">Меню</a>
+      <a class="navbar-item beta" routerLink="/users">
+        <span class="beta-title">Пользователи</span>
+        <span class="beta-badge">beta</span>
+      </a> 
+      <div class="navbar-item has-dropdown is-hoverable">
+        <div class="navbar-link">
+          Админ
+        </div>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="javascript:void(0)" (click)="logout()">Выйти</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>

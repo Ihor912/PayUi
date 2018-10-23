@@ -1,0 +1,21 @@
+.toggle-group {
+  background-color: white;
+  font-weight: bold;
+}
+
+.beta-title {
+  position:relative;
+  display:inline-block;
+}
+.beta-badge {
+  position: absolute;
+  right:-10px;
+  top:8px;
+  text-align: center;
+  color:#3273dc;
+  font-size:10px;
+}
+
+.beta {
+  margin-right: 20px;
+}

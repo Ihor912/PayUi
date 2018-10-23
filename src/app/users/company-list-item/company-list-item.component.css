@@ -1,0 +1,13 @@
+.company-list-item {
+  padding: 10px;
+  border-bottom: 1px solid #dbdbdb;
+}
+
+.company-list-item-title {
+  cursor: pointer;
+}
+
+.actions a {
+  display: inline-block;
+  margin-right: 10px;
+}

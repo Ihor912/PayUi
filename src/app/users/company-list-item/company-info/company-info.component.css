@@ -1,0 +1,14 @@
+.info-title {
+  color: #363636;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.subcompany-list-item {
+  padding: 5px;
+  border-bottom: 1px solid #cccccc;
+}
+
+.subcompany-list-item:last-of-type {
+  border-bottom: none;
+}

@@ -1,0 +1,61 @@
+<div class="modal" [ngClass]="{ 'is-active' : isModalActive }">
+  <div class="modal-background" (click)="cancel()"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title">
+        Новая компания
+      </p>
+      <button class="delete" aria-label="close" (click)="cancel()"></button>
+    </header>
+  <section class="modal-card-body">
+    <div class="field">
+      <label class="label">Название компании</label>
+      <div class="control has-icons-right">
+        <input class="input is-small" type="text" [(ngModel)]="title">
+      </div>
+    </div>
+    <p class="label">Подкомпании (<a (click)="showAddingCompany()">Добавить</a>)</p>
+    <div class="new-subcompany" *ngIf="isShownNewCompany">
+      <div class="field">
+        <label class="label">Название</label>
+        <div class="control has-icons-right">
+          <input class="input is-small" type="text" #subcompanyTitle>
+        </div>
+      </div>
+      <div class="field">
+        <label class="label">Адрес</label>
+        <div class="control has-icons-right">
+          <input class="input is-small" type="text" #subcompanyAddress>
+        </div>
+      </div>
+      <a (click)="addSubcompany(subcompanyTitle.value, subcompanyAddress.value)" class="new-subcompany-buttons">Создать</a>
+      <a (click)="hideAddingCompany()" class="new-subcompany-buttons">Отмена</a>
+    </div>
+    <div class="subcompany-list">
+      <div class="subcompany-list-item" *ngFor="let subcompany of subcompanies">
+        <p>
+          <span class="icon is-small is-left">
+            <i class="fas fa-building"></i>
+          </span>
+          {{ subcompany.title }}
+        </p>
+        <p>
+          <span class="icon is-small is-left">
+            <i class="fas fa-map-marker-alt"></i>
+          </span>
+          {{ subcompany.address }}
+        </p>
+      </div>
+    </div>
+  </section>
+  <footer class="modal-card-foot">
+    <button class="button is-success is-outlined" (click)="save()">
+      <span class="icon is-small">
+        <i class="fas fa-check"></i>
+      </span>
+      <span>Сохранить</span>
+    </button>
+    <button class="button is-outlined" (click)="cancel()">Отмена</button>
+  </footer>
+</div>
+</div>

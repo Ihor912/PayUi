@@ -1,0 +1,21 @@
+<div class="company-list-item">
+  <div class="company-list-item-title" (click)="collapse()">
+    {{ company.title }}
+    <div class="actions is-pulled-right">
+        <a (click)="showEditModal()">
+          <span class="icon is-small">
+            <i class="fas fa-edit"></i>
+          </span>
+        </a>
+        <a (click)="showDeleteModal()">
+          <span class="icon is-small">
+            <i class="fas fa-trash"></i>
+          </span>
+        </a>
+    </div>
+  </div>
+  <app-company-info [company]="company" *ngIf="isShownCompanyInfo"></app-company-info>
+</div>
+
+<app-company-edit [company]="company" [isModalActive]="isShownEditModal" (isClosed)="closeModal()"></app-company-edit>
+<app-company-delete [company]="company" [isModalActive]="isShownDeleteModal" (isClosed)="closeModal()"></app-company-delete>

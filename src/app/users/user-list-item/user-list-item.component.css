@@ -1,0 +1,13 @@
+.user-list-item {
+    padding: 10px;
+    border-bottom: 1px solid #dbdbdb;
+}
+
+.user-list-item-title {
+    cursor: pointer;
+}
+
+.actions a {
+    display: inline-block;
+    margin-right: 10px;
+}

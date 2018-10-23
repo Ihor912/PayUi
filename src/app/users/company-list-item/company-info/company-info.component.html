@@ -1,0 +1,20 @@
+<div class="company-info">
+  <p><span class="info-title">Скидка: </span>{{ company.discount }}%</p>
+  <p><span class="info-title">Бонус: </span>{{ company.bonusPercentage }}%</p>
+  <p><span class="info-title">Накопленный бонус: </span>{{ company.bonusAccumulated }} тг.</p>
+  <p><span class="info-title">Подкомпании:</span></p>
+  <div class="subcompany-list-item" *ngFor="let subcompany of company.subcompanies">
+    <p>
+      <span class="icon is-small is-left">
+        <i class="fas fa-building"></i>
+      </span>
+      {{ subcompany.title }}
+    </p>
+    <p>
+      <span class="icon is-small is-left">
+        <i class="fas fa-map-marker-alt"></i>
+      </span>
+      {{ subcompany.address }}
+    </p>
+  </div>
+</div>

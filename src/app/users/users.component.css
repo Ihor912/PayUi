@@ -1,0 +1,8 @@
+.user-list {
+    border: 1px solid #dbdbdb;
+}
+
+.add-user-button {
+    margin-bottom: 5px;
+    display: inline-block;
+}

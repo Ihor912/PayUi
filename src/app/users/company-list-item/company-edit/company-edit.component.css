@@ -1,0 +1,16 @@
+.new-subcompany {
+  padding: 5px;
+  padding-left: 5%;
+  border-radius: 8px;
+  background-color: #f6f6f6;
+}
+
+.new-subcompany-buttons {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.subcompany-list-item {
+  border-bottom: 1px solid #cccccc;
+  padding: 5px;
+}

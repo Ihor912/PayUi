@@ -1,0 +1,71 @@
+<div class="modal" [ngClass]="{ 'is-active' : isModalActive }" *ngIf="editForm">
+  <div class="modal-background" (click)="cancel()"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title">
+        Редактирование
+      </p>
+      <button class="delete" aria-label="close" (click)="cancel()"></button>
+    </header>
+  <section class="modal-card-body">
+    <form [formGroup]="editForm" (submit)="save()">
+      <div class="field">
+        <label class="label">Полное имя</label>
+        <div class="control has-icons-right">
+          <input class="input is-small" type="text" formControlName="fullName">
+          <span class="icon is-small is-right" *ngIf="requiredFullNameError">
+            <i class="fas fa-exclamation-triangle"></i>
+          </span>
+          <p class="help is-danger" *ngIf="requiredFullNameError">Поле Полное имя не должно быть пустым</p>
+        </div>
+      </div>
+      <div class="field">
+        <label class="label">Телефон</label>
+        <div class="control has-icons-right">
+          <input class="input is-small" type="text" formControlName="phone">
+          <span class="icon is-small is-right" *ngIf="requiredPhoneError">
+            <i class="fas fa-exclamation-triangle"></i>
+          </span>
+          <p class="help is-danger" *ngIf="requiredPhoneError">Поле Телефон не должно быть пустым</p>
+        </div>
+      </div>
+      <div class="field">
+        <label class="label">WhatsApp</label>
+        <div class="control">
+          <input class="input is-small" type="number" formControlName="whatsApp">
+          <p class="help is-danger" *ngIf="requiredWhatsAppError">Поле WhatsApp за единицу не должно быть пустым</p>
+        </div>
+      </div>
+      <div class="field">
+        <label class="label">Роль</label>
+        <div class="control">
+          <div class="select is-small is-primary">
+            <select formControlName="role">
+              <option value="client">Клиент</option>
+              <option value="forwarder">Курьер</option>
+              <option value="manager">Менеджер</option>
+            </select>
+          </div>
+          <p class="help is-danger" *ngIf="requiredRoleError">Поле Роль не должно быть пустым</p>
+        </div>
+      </div>
+      <div class="field">
+        <label class="label">Описание</label>
+        <div class="control">
+          <input class="input is-small" type="text" formControlName="description">
+          <p class="help is-danger" *ngIf="requiredDescriptionError">Поле Описание не должно быть пустым</p>
+        </div>
+      </div>
+    </form>
+  </section>
+  <footer class="modal-card-foot">
+    <button class="button is-success is-outlined" (click)="save()">
+      <span class="icon is-small">
+        <i class="fas fa-check"></i>
+      </span>
+      <span>Сохранить</span>
+    </button>
+    <button class="button is-outlined" (click)="cancel()">Отмена</button>
+  </footer>
+</div>
+</div>

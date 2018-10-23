@@ -1,0 +1,19 @@
+<div class="category-button" 
+[ngClass]="{'is-chosen': (chosenCategory | async) === category}">
+  <div (click)="choose()" class="category-title">{{ category.title }}</div>
+  <div class="category-actions">
+    <a (click)="showEditCategoryModal()">
+      <span class="icon">
+        <i class="fas fa-edit"></i>
+      </span>
+    </a>
+    <a (click)="showDeleteCategoryModal()">
+      <span class="icon">
+        <i class="fas fa-trash"></i>
+      </span>
+    </a>
+  </div>
+</div>
+
+<app-category-edit [category]="category" [isModalActive]="isShownEditCategoryModal" (isClosed)="closeModal()"></app-category-edit>
+<app-category-delete [category]="category" [isModalActive]="isShownDeleteCategoryModal" (isClosed)="closeModal()"></app-category-delete>
